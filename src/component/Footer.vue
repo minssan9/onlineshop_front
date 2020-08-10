@@ -1,7 +1,7 @@
 <template>
   <footer class="mt-5 modal-footer bg-light">
     <div class="container">
-      <p class="text-dark text-center">Copyright © minssan9 2020</p>
+      <p class="text-dark text-center">Copyright © Voyagers 2020</p>
     </div>
   </footer>
 </template>
