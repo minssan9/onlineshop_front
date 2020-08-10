@@ -46,9 +46,23 @@ module.exports = {
     extensions: ['*', '.js', '.vue', '.json']
   },
   devServer: {
+    // proxyTable: {
+    //   '/api': {
+    //     target: 'http://localhost:8090',
+    //     changeOrigin: true,
+    //     pathRewrite: {
+    //       '^/api': ''
+    //     }
+    //   },
+    //   // '/images': {
+    //   //   target: 'http://localhost:8081',
+    //   //   changeOrigin: true
+    //   // }
+    // },
+    port:8081,
     historyApiFallback: true,
     noInfo: true,
-    overlay: true
+    overlay: true, 
   },
   performance: {
     hints: false
