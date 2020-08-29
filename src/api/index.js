@@ -2,7 +2,7 @@ import axios from 'axios'
 import router from '../router'
 import qs from 'qs'
 
-const DOMAIN = 'http://localhost:8090' 
+const DOMAIN = 'http://localhost:8090'
 
 const BadRequest = 400
 const Unauthorized = 401
