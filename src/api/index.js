@@ -2,7 +2,7 @@ import axios from 'axios'
 import router from '../router'
 import qs from 'qs'
 
-const DOMAIN = 'http://shop.voyagerss.com:44000' 
+const DOMAIN = 'http://shop.voyagerss.com' 
 
 const BadRequest = 400
 const Unauthorized = 401
@@ -78,7 +78,7 @@ const requestFile = (method, url, data) => {
 
 export const auth = {
   login(playload) {
-    return authRequest('post', '/oauth/token', playload)
+    return authRequest('post', '/api/oauth/token', playload)
   }
 }
 
