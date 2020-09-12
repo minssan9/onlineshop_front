@@ -79,6 +79,7 @@
         idNotExist: false,
         isSubmit: false,
         isShowModal: false
+        
       }
     },
     components: {

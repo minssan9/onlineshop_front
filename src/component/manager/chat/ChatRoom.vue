@@ -80,7 +80,7 @@
         container.scrollTop = container.scrollHeight;
       },
       connect() {
-        this.socket = new SockJS('http://localhost:8090/websockethandler')
+        this.socket = new SockJS('http://shop.voyagerss.com/api/websockethandler')
         this.stompClient = Stomp.over(this.socket)
 
 
