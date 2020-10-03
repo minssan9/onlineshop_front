@@ -3,7 +3,7 @@
     <th scope="row">{{index+1}}</th>
     <td>
       <img class="img-fluid mr-1" style="max-width: 45px"
-           :src="`http://localhost:8090/api/items/download?fileName=${cart.item.itemFileList[0].uuid}_${cart.item.itemFileList[0].fileName}`"
+           :src="`http://voyagerss.com/api/items/download?fileName=${cart.item.itemFileList[0].uuid}_${cart.item.itemFileList[0].fileName}`"
            alt="img">
       {{cart.item.title}}
     </td>

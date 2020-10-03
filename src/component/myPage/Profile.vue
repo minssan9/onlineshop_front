@@ -4,7 +4,7 @@
     <hr/>
     <div class="row">
       <div @click="isShowImgChangeModal=true" class="btn col-xl-4 col-3">
-        <img v-if="account.accountFile" class="img-thumbnail"  :src="`http://localhost:8090/api/accounts/download?fileName=${account.accountFile.uuid}_${account.accountFile.fileName}`"/>
+        <img v-if="account.accountFile" class="img-thumbnail"  :src="`http://voyagerss.com/api/accounts/download?fileName=${account.accountFile.uuid}_${account.accountFile.fileName}`"/>
         <img v-else class="img-thumbnail" src="../../../assets/person_profile.png">
       </div>
       <div class="col-xl-3 col-2">
@@ -35,7 +35,7 @@
       <div slot="body">
         <div class="form-group">
           <img v-if="url" class="img-thumbnail" :src="url" />
-          <img v-else-if="account.accountFile" class="img-thumbnail" :src="`http://localhost:8090/api/accounts/download?fileName=${account.accountFile.uuid}_${account.accountFile.fileName}`"/>
+          <img v-else-if="account.accountFile" class="img-thumbnail" :src="`http://voyagerss.com/api/accounts/download?fileName=${account.accountFile.uuid}_${account.accountFile.fileName}`"/>
           <img v-else class="img-thumbnail" src="../../../assets/person_profile.png">
           <div class="custom-file mt-2">
             <input id="file" name="file" type="file" ref="files" @change="onFileChange" class="custom-file-input">

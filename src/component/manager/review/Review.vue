@@ -11,7 +11,7 @@
         <div class="row">
           <div class="col-3">
             <img style="max-width: 75px"
-                 :src="`http://localhost:8090/api/reviews/download?fileName=${review.reviewFile.uuid}_${review.reviewFile.fileName}`"/>
+                 :src="`http://voyagerss.com/api/reviews/download?fileName=${review.reviewFile.uuid}_${review.reviewFile.fileName}`"/>
           </div>
           <div class="col-1"></div>
           <div class="col-8">

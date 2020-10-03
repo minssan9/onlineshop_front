@@ -103,6 +103,23 @@
         'FETCH_ITEM'
       ]),
       onUpdateItem () {
+        
+        let inputFile = document.querySelector('#file')
+        let file = inputFile.files
+
+
+        for (let i = 0; i < file.length; i++) {
+          if (!this.isExtensionAndSize(file[i].name, file[i].size)) {
+            return
+          }
+          formData.append('uploadFile', file[i])
+          this.itemFileList.push(file[i])
+        }
+        
+
+        // 파일업로드 -> 파일업로드결과 응답-> 아이템정보에 파일업로드결과 추가해서 다시요청
+
+
         this.UPDATE_ITEM({id: this.$route.params.id, item: this.updateItem})
         alert('수정이 완료되었습니다.')
         this.$router.push('/')

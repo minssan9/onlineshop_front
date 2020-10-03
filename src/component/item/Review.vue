@@ -13,7 +13,7 @@
           <div class="col-3">
             <Carousel :itemFile="review.reviewFile"></Carousel>
             <img style="max-width: 100px"
-                 :src="`http://localhost:8090/api/reviews/download?fileName=${review.reviewFile.uuid}_${review.reviewFile.fileName}`"/>
+                 :src="`http://voyagerss.com/api/reviews/download?fileName=${review.reviewFile.uuid}_${review.reviewFile.fileName}`"/>
           </div>
           <p class="col-9"> {{review.content}}</p>
         </div>

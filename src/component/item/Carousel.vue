@@ -7,7 +7,7 @@
       </ol>
       <div class="carousel-inner">
         <div v-for="(itemFile,index) in itemFile" :key="itemFile.id" :class="[{'active':index===0},'carousel-item']">
-          <img :src="`http://localhost:8090/api/items/download?fileName=${itemFile.uuid}_${itemFile.fileName}`"
+          <img :src="`http://voyagerss.com/api/items/download?fileName=${itemFile.uuid}_${itemFile.fileName}`"
                alt="img">
         </div>
       </div>
