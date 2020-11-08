@@ -2,7 +2,8 @@ import axios from 'axios'
 import router from '../router'
 import qs from 'qs'
 
-const DOMAIN = 'http://shop.voyagerss.com' 
+// const DOMAIN = 'http://shop.voyagerss.com' 
+const DOMAIN = '' 
 
 const BadRequest = 400
 const Unauthorized = 401

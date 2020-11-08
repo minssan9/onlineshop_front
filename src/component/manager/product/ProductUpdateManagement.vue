@@ -112,7 +112,7 @@
           if (!this.isExtensionAndSize(file[i].name, file[i].size)) {
             return
           }
-          formData.append('uploadFile', file[i])
+          // formData.append('uploadFile', file[i])
           this.itemFileList.push(file[i])
         }
         
@@ -123,15 +123,38 @@
         this.UPDATE_ITEM({id: this.$route.params.id, item: this.updateItem})
         alert('수정이 완료되었습니다.')
         this.$router.push('/')
-      }
+      },
+      
+      isExtensionAndSize(fileName, fileSize) {
+        let regex = new RegExp('(.*?)\.(exe|sh|zip|alz)$')
+        let maxSize = 1048576  // 1MB
+
+        if (fileSize >= maxSize) {
+          alert('파일 사이즈 초과')
+          return false
+        }
+
+        if (regex.test(fileName)) {
+          alert('해당 파일형식은 업로드 불가능합니다.')
+          return false
+        }
+
+        return true
+      },
+      onFileList() {
+        this.files = this.$refs.files.files;
+      },
     },
     created () {
+      this.updateItem.title = ''
+      this.updateItem.content = ''
+      this.updateItem.price = ''
+      this.updateItem.discount = ''
+      this.updateItem.deliveryDate = ''
+      
+      this.$store.dispatch('FETCH_ITEM', this.$route.params.id)
       this.FETCH_ITEM(this.$route.params.id)
-      this.updateItem.title = this.item.title
-      this.updateItem.content = this.item.content
-      this.updateItem.price = this.item.price
-      this.updateItem.discount = this.item.discount
-      this.updateItem.deliveryDate = this.item.deliveryDate
+      this.updateItem = this.item      
     }
 
   }

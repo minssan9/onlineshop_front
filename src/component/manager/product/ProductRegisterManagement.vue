@@ -49,7 +49,7 @@
           </div>
 
           <ul class="list-group mt-2">
-            <li v-for="(option,index) in item.options" :key="index" class="list-group-item">{{option.option}}</li>
+            <li v-for="(options,index) in item.options" :key="index" class="list-group-item">{{options.options}}</li>
           </ul>
         </div>
 
@@ -174,7 +174,7 @@
           }
         }
 
-        this.item.options.push({option: this.optionInput})
+        this.item.options.push({options: this.optionInput})
         this.optionInput = ''
       }
     }

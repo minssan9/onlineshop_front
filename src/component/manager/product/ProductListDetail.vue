@@ -14,6 +14,9 @@
             <div class="col-8">
               <p>{{ item.title }}</p>
             </div>
+            <div class="col-1">
+              <p>{{ item.id }}</p>
+            </div>
           </div>
         </div>
 
