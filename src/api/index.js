@@ -3,7 +3,7 @@ import router from '../router'
 import qs from 'qs'
 
 // const DOMAIN = 'http://shop.voyagerss.com' 
-const DOMAIN = '' 
+const DOMAIN = DOMAIN + '/shop' 
 
 const BadRequest = 400
 const Unauthorized = 401
@@ -12,11 +12,11 @@ const NotFound = 404
 
 
 export const setAuthInHeader = token => {
-  axios.defaults.headers.common['Authorization'] = token ? `Bearer ${token}` : null
+  axios.defaults.headers.common['Authorization'] = token ? 'Bearer ${token}' : null
 }
 
 const onUnauthorized = () => {
-  router.push(`/login?returnPath=${encodeURIComponent(location.pathname)}`)
+  router.push('/login?returnPath=${encodeURIComponent(location.pathname)}')
   throw Error(response)
 }
 const onForbidden = (response) => {
@@ -79,96 +79,96 @@ const requestFile = (method, url, data) => {
 
 export const auth = {
   login(playload) {
-    return authRequest('post', '/api/oauth/token', playload)
+    return authRequest('post', DOMAIN + '/oauth/token', playload)
   }
 }
 
 export const account = {
   fetch() {
-    return request('get', '/api/accounts')
+    return request('get', DOMAIN + '/accounts')
   },
   create(playload) {
-    return request('post', '/api/accounts', playload)
+    return request('post', DOMAIN + '/accounts', playload)
   },
   put(playload) {
-    return request('put', '/api/accounts', playload)
+    return request('put', DOMAIN + '/accounts', playload)
   },
   fetchManager(playload) {
-    return request('get', `/api/accounts/manager?page=${playload.page}&size=10&sort=id,DESC`)
+    return request('get', DOMAIN + '/accounts/manager?page=${playload.page}&size=10&sort=id,DESC')
   },
   fetchManagerSearch(playload) {
-    return request('get', `/api/accounts/manager/${playload.option}/${playload.keyword}?page=${playload.page}&size=10&sort=id,DESC`)
+    return request('get', DOMAIN + '/accounts/manager/${playload.option}/${playload.keyword}?page=${playload.page}&size=10&sort=id,DESC')
   },
   idCheck(playload) {
-    return request('post', '/api/accounts/join/check', playload)
+    return request('post', DOMAIN + '/accounts/join/check', playload)
   },
   createFiles(playload) {
-    return requestFile('post', `/api/accounts/files/${playload.accountId}`, playload.formData)
+    return requestFile('post', DOMAIN + '/accounts/files/${playload.accountId}', playload.formData)
   }
 }
 
 export const cart = {
   fetch() {
-    return request('get', '/api/carts')
+    return request('get', DOMAIN + '/carts')
   },
   create(playload) {
-    return request('post', `/api/carts/${playload.itemId}`)
+    return request('post', DOMAIN + '/carts/${playload.itemId}')
   },
   destroy(playload) {
-    return request('delete', `/api/carts/${playload.id}`)
+    return request('delete', DOMAIN + '/carts/${playload.id}')
   },
   destroyAll() {
-    return request('delete', '/api/carts/all')
+    return request('delete', DOMAIN + '/carts/all')
   }
 }
 
 // 주문리스트
 export const order = {
   fetchAccount(page) {
-    return request('get', `/api/orders/?page=${page.id}&size=10&sort=id,DESC`)
+    return request('get', DOMAIN + '/orders/?page=${page.id}&size=10&sort=id,DESC')
   },
   fetchManager(page) {
-    return request('get', `/api/orders/manager?page=${page.id}&size=10&sort=id,DESC`)
+    return request('get', DOMAIN + '/orders/manager?page=${page.id}&size=10&sort=id,DESC')
   },
   create(playload) {
-    return request('post', '/api/orders', playload)
+    return request('post', DOMAIN + '/orders', playload)
   },
   put(playload) {
-    return request('put', '/api/orders', playload)
+    return request('put', DOMAIN + '/orders', playload)
   },
   fetchManagerSearch(playload) {
-    return request('get', `/api/orders/manager/${playload.option}/${playload.keyword}?page=${playload.page}&size=10&sort=id,DESC`)
+    return request('get', DOMAIN + '/orders/manager/${playload.option}/${playload.keyword}?page=${playload.page}&size=10&sort=id,DESC')
   },
   fetchOperationStatus() {
-    return request('get', '/api/orders/operation/status')
+    return request('get', DOMAIN + '/orders/operation/status')
   },
   fetchOperationStatusSerach(playload) {
-    return request('get', `/api/orders/operation/status/${playload.yy}/${playload.mm}/${playload.dd}`)
+    return request('get', DOMAIN + '/orders/operation/status/${playload.yy}/${playload.mm}/${playload.dd}')
   }
 }
 
 export const item = {
   fetch(id) {
-    return request('get', `/api/items/${id}`)
+    return request('get', DOMAIN + '/items/${id}')
   },
   // DESC
   fetchList(playload) {
-    return request('get', `/api/items?page=${playload.page}&size=${playload.size}&sort=${playload.option},${playload.sort}`)
+    return request('get', DOMAIN + '/items?page=${playload.page}&size=${playload.size}&sort=${playload.option},${playload.sort}')
   },
   create(playload) {
-    return request('post', '/api/items', playload)
+    return request('post', DOMAIN + '/items', playload)
   },
   put(playload) {
-    return request('put', `/api/items/${playload.id}`, playload.item)
+    return request('put', DOMAIN + '/items/${playload.id}', playload.item)
   },
   destroy(playload) {
-    return request('delete', `/api/items/${playload.id}`)
+    return request('delete', DOMAIN + '/items/${playload.id}')
   },
   fetchSearch(playload) {
-    return request('get', `/api/items/search/${playload.keyword}?page=${playload.page}&size=16&sort=${playload.option},${playload.sort}`)
+    return request('get', DOMAIN + '/items/search/${playload.keyword}?page=${playload.page}&size=16&sort=${playload.option},${playload.sort}')
   },
   createFiles(playload) {
-    return requestFile('post', '/api/items/files', playload)
+    return requestFile('post', DOMAIN + '/items/files', playload)
   }
 }
 
@@ -176,59 +176,59 @@ export const item = {
 export const qna = {
 
   fetch(playload) {
-    return request('get', `/api/qna/${playload.itemId}?page=${playload.page}&size=5&sort=id,DESC`)
+    return request('get', DOMAIN + '/qna/${playload.itemId}?page=${playload.page}&size=5&sort=id,DESC')
   },
   fetchManager(playload) {
-    return request('get', `/api/qna?page=${playload.page}&size=10&sort=id,DESC`)
+    return request('get', DOMAIN + '/qna?page=${playload.page}&size=10&sort=id,DESC')
   },
   create(playload) {
-    return request('post', `/api/qna/${playload.itemId}`, playload.qna)
+    return request('post', DOMAIN + '/qna/${playload.itemId}', playload.qna)
   },
   put(playload) {
-    return request('put', `/api/qna/${playload.itemId}`, {content: playload.content})
+    return request('put', DOMAIN + '/qna/${playload.itemId}', {content: playload.content})
   },
   destroy(playload) {
-    return request('delete', `/api/qna/${playload.qnaId}`);
+    return request('delete', DOMAIN + '/qna/${playload.qnaId}');
   },
   fetchManagerSearch(playload) {
-    return request('get', `/api/qna/manager/${playload.option}/${playload.keyword}?page=${playload.page}&size=10&sort=id,DESC`)
+    return request('get', DOMAIN + '/qna/manager/${playload.option}/${playload.keyword}?page=${playload.page}&size=10&sort=id,DESC')
   },
 }
 
 export const review = {
 
   fetch(playload) {
-    return request('get', `/api/reviews/${playload.itemId}?page=${playload.page}&size=5&sort=id,DESC`)
+    return request('get', DOMAIN + '/reviews/${playload.itemId}?page=${playload.page}&size=5&sort=id,DESC')
   },
   fetchManager(playload) {
-    return request('get', `/api/reviews?page=${playload.page}&size=10&sort=id,DESC`)
+    return request('get', DOMAIN + '/reviews?page=${playload.page}&size=10&sort=id,DESC')
   },
   fetchManagerSearch(playload) {
-    return request('get', `/api/reviews/manager/${playload.option}/${playload.keyword}?page=${playload.page}&size=10&sort=id,DESC`)
+    return request('get', DOMAIN + '/reviews/manager/${playload.option}/${playload.keyword}?page=${playload.page}&size=10&sort=id,DESC')
   },
   create(playload) {
-    return request('post', `/api/reviews/${playload.itemId}`, playload.review)
+    return request('post', DOMAIN + '/reviews/${playload.itemId}', playload.review)
   },
   createFiles(playload) {
-    return requestFile('post', '/api/reviews/files', playload)
+    return requestFile('post', DOMAIN + '/reviews/files', playload)
   }
 }
 
 export const chat = {
   fetch(playload) {
-    return request('get', `/api/chats/${playload.id}`)
+    return request('get', DOMAIN + '/chats/${playload.id}')
   },
   fetchList() {
-    return request('get', `/api/chats?sort=unRead,DESC`)
+    return request('get', DOMAIN + '/chats?sort=unRead,DESC')
   },
   read(playload) {
-    return request('get', `/api/chats/read/${playload.id}`)
+    return request('get', DOMAIN + '/chats/read/${playload.id}')
   }
 }
 
 export const mail = {
   mailSend(playload) {
-    return request('post', '/api/mails', {title: playload.title, content: playload.content})
+    return request('post', DOMAIN + '/mails', {title: playload.title, content: playload.content})
   },
 }
 
