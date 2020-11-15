@@ -3,7 +3,7 @@ import router from '../router'
 import qs from 'qs'
 
 // const DOMAIN = 'http://shop.voyagerss.com' 
-const DOMAIN = DOMAIN + '/shop' 
+const DOMAIN =  '/api/shop' 
 
 const BadRequest = 400
 const Unauthorized = 401

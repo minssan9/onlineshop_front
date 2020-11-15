@@ -18,7 +18,7 @@
         <td>
           <div>
             <img class="mr-2" style="max-width: 50px"
-                 :src="`http://voyagerss.com/api/items/download?fileName=${order.item.itemFileList[0].uuid}_${order.item.itemFileList[0].fileName}`"
+                 :src="`http://voyagerss.com/api/shop/items/download?fileName=${order.item.itemFileList[0].uuid}_${order.item.itemFileList[0].fileName}`"
                  alt="img">
             <router-link :to="`/item/${order.item.id}`">{{order.item.title}}</router-link>
           </div>

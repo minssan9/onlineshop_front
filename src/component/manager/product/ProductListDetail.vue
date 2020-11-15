@@ -7,7 +7,7 @@
             <div class="col-3">
               <!-- <img
                 style="max-width: 100px"
-                :src="`http://voyagerss.com/api/items/download?fileName=${item.itemFileList[0].uuid}_${item.itemFileList[0].fileName}`"
+                :src="`http://voyagerss.com/api/shop/items/download?fileName=${item.itemFileList[0].uuid}_${item.itemFileList[0].fileName}`"
               /> -->
             </div>
             <div class="col-1"></div>
