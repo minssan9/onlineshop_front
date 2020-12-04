@@ -2,7 +2,7 @@
   <div class="col-4 col-lg-3 text-center mb-5">
     <div class="card-item card">
       <router-link :to="`/item/${item.id}`">
-        <!-- <img class="card-img-top" :src="`http://voyagerss.com/api/items/download?fileName=${this.item.itemFileList[0].uuid}_${this.item.itemFileList[0].fileName}`" alt="Card image cap"> -->
+        <!-- <img class="card-img-top" :src="`http://voyagerss.com/api/shop/items/download?fileName=${this.item.itemFileList[0].uuid}_${this.item.itemFileList[0].fileName}`" alt="Card image cap"> -->
       </router-link>
       <div class="card-body">
         <p class="card-title t1">

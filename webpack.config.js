@@ -47,11 +47,11 @@ module.exports = {
   },
   devServer: {
     // proxyTable: {
-    //   '/api': {
-    //     target: 'http://voyagerss.com/api',
+    //   '/api/shop': {
+    //     target: 'http://voyagerss.com/api/shop',
     //     changeOrigin: true,
     //     pathRewrite: {
-    //       '^/api': ''
+    //       '^/api/shop': ''
     //     }
     //   },
     //   // '/images': {

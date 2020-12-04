@@ -20,7 +20,7 @@
         <th scope="row">
           <div class="row">
             <div class="col-sm-auto">
-              <img class="img-fluid" style="max-width: 75px" :src="`http://voyagerss.com/api/items/download?fileName=${item.itemFileList[0].uuid}_${item.itemFileList[0].fileName}`"  alt="img">
+              <img class="img-fluid" style="max-width: 75px" :src="`http://voyagerss.com/api/shop/items/download?fileName=${item.itemFileList[0].uuid}_${item.itemFileList[0].fileName}`"  alt="img">
             </div>
             <div class="col-sm-auto">
               <p>{{item.title}}</p>
